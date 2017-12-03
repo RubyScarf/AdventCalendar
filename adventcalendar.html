@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Adventi kalendárium</title>
+    <title>Advent Calendar</title>
     <style>
         body, html { 
             margin: auto;
@@ -60,81 +60,44 @@
 </head>
 <body>
     <div class="calendar">
-        <div id="1" class="boxes" onclick="clicking('1', content1)">
-            1
-        </div>
-        <div id="6" class="boxes red" onclick="clicking('6',content6)">
-            6
-        </div>
-        <div id="11" class="boxes" onclick="clicking('11', content11)">
-            11
-        </div> 
-        <div id="24" class="boxes red" onclick="clicking('24', content24)">
-            24
-        </div>
-        <div id="7" class="boxes" onclick="clicking('7', content7)">
-            7
-        </div>  
-        <div id="22" class="boxes red" onclick="clicking('22', content22)">
-            22
-        </div>
-        <div id="16" class="boxes red" onclick="clicking('16', content16)">
-            16
-        </div>
-        <div id="5" class="boxes" onclick="clicking('5', content5)">
-            5
-        </div>
-        <div id="2" class="boxes red" onclick="clicking('2', content2)">
-            2
-        </div>
-        <div id="21" class="boxes" onclick="clicking('21', content21)">
-            21
-        </div>
-        <div id="15" class="boxes red" onclick="clicking('15', content15)">
-            15
-        </div> 
-        <div id="12" class="boxes" onclick="clicking('12', content12)">
-            12
-        </div>
-        <div id="20" class="boxes" onclick="clicking('20', content20)">
-            20
-        </div>   
-        <div id="3" class="boxes red" onclick="clicking('3', content3)">
-            3
-        </div>
-        <div id="23" class="boxes" onclick="clicking('23', content23)">
-            23
-        </div>
-        <div id="17" class="boxes red" onclick="clicking('17', content17)">
-            17
-        </div>
-        <div id="8" class="boxes" onclick="clicking('8', content8)">
-            8
-        </div> 
-        <div id="10" class="boxes red" onclick="clicking('10', content10)">
-            10
-        </div>
-        <div id="14" class="boxes red" onclick="clicking('14', content14)">
-            14
-        </div>   
-        <div id="4" class="boxes" onclick="clicking('4', content4)">
-            4
-        </div>
-        <div id="13" class="boxes red" onclick="clicking('13', content13)">
-            13
-        </div>
-        <div id="18" class="boxes" onclick="clicking('18',content18)">
-            18
-        </div>
-        <div id="19" class="boxes red" onclick="clicking('19', content19)">
-            19
-        </div>
-        <div id="9" class="boxes" onclick="clicking('9', content9)">
-            9
-        </div>
+        <div id="1" class="boxes" onclick="clicking('1', content1)"> 1 </div>
+        <div id="6" class="boxes red" onclick="clicking('6',content6)"> 6 </div>
+        <div id="11" class="boxes" onclick="clicking('11', content11)"> 11 </div> 
+        <div id="24" class="boxes red" onclick="clicking('24', content24)"> 24 </div>
+        <div id="7" class="boxes" onclick="clicking('7', content7)"> 7 </div>  
+        <div id="22" class="boxes red" onclick="clicking('22', content22)"> 22 </div>
+        <div id="16" class="boxes red" onclick="clicking('16', content16)"> 16 </div>
+        <div id="5" class="boxes" onclick="clicking('5', content5)"> 5 </div>
+        <div id="2" class="boxes red" onclick="clicking('2', content2)"> 2 </div>
+        <div id="21" class="boxes" onclick="clicking('21', content21)"> 21 </div>
+        <div id="15" class="boxes red" onclick="clicking('15', content15)"> 15 </div> 
+        <div id="12" class="boxes" onclick="clicking('12', content12)"> 12 </div>
+        <div id="20" class="boxes" onclick="clicking('20', content20)"> 20 </div>   
+        <div id="3" class="boxes red" onclick="clicking('3', content3)"> 3 </div>
+        <div id="23" class="boxes" onclick="clicking('23', content23)"> 23 </div>
+        <div id="17" class="boxes red" onclick="clicking('17', content17)"> 17 </div>
+        <div id="8" class="boxes" onclick="clicking('8', content8)"> 8 </div> 
+        <div id="10" class="boxes red" onclick="clicking('10', content10)"> 10 </div>
+        <div id="14" class="boxes red" onclick="clicking('14', content14)"> 14 </div>   
+        <div id="4" class="boxes" onclick="clicking('4', content4)"> 4 </div>
+        <div id="13" class="boxes red" onclick="clicking('13', content13)"> 13 </div>
+        <div id="18" class="boxes" onclick="clicking('18',content18)"> 18 </div>
+        <div id="19" class="boxes red" onclick="clicking('19', content19)"> 19 </div>
+        <div id="9" class="boxes" onclick="clicking('9', content9)"> 9 </div>
     </div>
 
     <script>
+        function checkSeen(id) {
+            const stored = localStorage.getItem("alreadySeen" + id);
+            if (stored == id) {
+                const elem = document.getElementById(id);
+                elem.innerHTML = ":)"
+            }
+        }
+        for (i = 1; i < 25; i++) { 
+            checkSeen([i]) ;
+        }
+        
         const year = 2017;
         const content1 = "This is the content of day 1"
         const content2 = "This is the content of day 2"
@@ -163,11 +126,12 @@
 
         function clicking(id, content) {
             const elem = document.getElementById(id);
-            elem.classList.toggle("open");
             const today = new Date();
             const future = new Date(year, 11, parseInt(id), 00, 01, 01);
+            elem.classList.toggle("open");
             if (future < today) {
                 if (elem.innerHTML == parseInt(id)) {
+                    localStorage.setItem("alreadySeen" + id, id);
                     elem.innerHTML = content;
                 } else if (elem.innerHTML == ":)") {
                     elem.innerHTML = content;
