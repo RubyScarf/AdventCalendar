@@ -6,35 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Adventi kalendárium</title>
     <style>
-        body, html {
-            height: 100%;
-            margin: 0;
+        body, html { 
+            margin: auto;
+            background-image: url("https://avante.biz/wp-content/uploads/Christmas-Wallpaper/Christmas-Wallpaper-027.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
         .calendar {
-           background-image: url("https://avante.biz/wp-content/uploads/Christmas-Wallpaper/Christmas-Wallpaper-027.jpg");
-           max-width: 100%;
-           background-position: center;
-           background-repeat: repeat;
-           background-size: cover;
-           padding-left: 30px;
-           padding-right: 30px;
-           padding-top: 30px;
-           padding-bottom: 60px;
-        } 
-        .rows {
-            display: block;
+            max-width: 1000px;
             text-align: center;
-        }
+            margin: auto;
+            padding-top: 2%;
+        } 
         .boxes {
             background-color: rgba(5, 73, 28, 0.2);
-            color: #8e0906d6;
+            color: rgba(170, 10, 10, 1);
+            text-shadow: 2px 2px rgba(5, 73, 28, 0.7);
             padding: 20px;
             border: 3px solid rgba(126, 4, 4, 0.35);
             display: inline-block;
-            height: 100px;
-            width: 100px;
+            height: 80px;
+            width: 80px;
             text-align: center;
-            font: 80px cursive;
+            font: 60px cursive;
             cursor: pointer;
             margin: 10px;
             border-radius: 25px;
@@ -44,131 +39,151 @@
             border: 3px solid rgba(5, 73, 28, 0.3);
         }
         .open {
-            height: 400px;
+            height: 500px;
             width: 800px;
-            font: 40px cursive;
+            font: 25px cursive;
+            text-shadow: none;
+            color: rgba(120, 10, 10, 1);
+            padding: 20px;
+            background-color: rgba(255, 253, 142, 0.815);
         }
-
-    
+        .boxes:hover {
+            background-color: rgba(5, 73, 28, 0.5);
+        }
+        .boxes.red:hover {
+            background-color: rgba(126, 4, 4, 0.5);
+        }
+        .boxes.open:hover {
+            background-color: rgba(255, 249, 128, 0.568);
+        }          
     </style>
 </head>
 <body>
     <div class="calendar">
-        <div class="rows">
-        <div id="1" class="boxes" onclick="clicking('1','you clicked me')">
+        <div id="1" class="boxes" onclick="clicking('1', content1)">
             1
         </div>
-        <div id="6" class="boxes red" onclick="clicking('6','you clicked me')">
+        <div id="6" class="boxes red" onclick="clicking('6',content6)">
             6
         </div>
-        <div id="11" class="boxes" onclick="clicking('11','you clicked me')">
+        <div id="11" class="boxes" onclick="clicking('11', content11)">
             11
         </div> 
-        <div id="24" class="boxes red" onclick="clicking('24','you clicked me')">
+        <div id="24" class="boxes red" onclick="clicking('24', content24)">
             24
         </div>
-        <div id="7" class="boxes" onclick="clicking('7','you clicked me')">
+        <div id="7" class="boxes" onclick="clicking('7', content7)">
             7
         </div>  
-        <div id="22" class="boxes red" onclick="clicking('22','you clicked me')">
+        <div id="22" class="boxes red" onclick="clicking('22', content22)">
             22
         </div>
-        </div>
-        <div class="rows">
-        <div id="16" class="boxes red" onclick="clicking('16','you clicked me')">
+        <div id="16" class="boxes red" onclick="clicking('16', content16)">
             16
         </div>
-        <div id="5" class="boxes" onclick="clicking('5','you clicked me')">
+        <div id="5" class="boxes" onclick="clicking('5', content5)">
             5
         </div>
-        <div id="2" class="boxes red" onclick="clicking('2','you clicked me')">
+        <div id="2" class="boxes red" onclick="clicking('2', content2)">
             2
         </div>
-        <div id="21" class="boxes" onclick="clicking('21','you clicked me')">
+        <div id="21" class="boxes" onclick="clicking('21', content21)">
             21
         </div>
-        <div id="15" class="boxes red" onclick="clicking('15','you clicked me')">
+        <div id="15" class="boxes red" onclick="clicking('15', content15)">
             15
         </div> 
-        <div id="12" class="boxes" onclick="clicking('12','you clicked me')">
+        <div id="12" class="boxes" onclick="clicking('12', content12)">
             12
         </div>
-        </div>
-        <div class="rows">
-        <div id="20" class="boxes" onclick="clicking('20','you clicked me')">
+        <div id="20" class="boxes" onclick="clicking('20', content20)">
             20
         </div>   
-        <div id="3" class="boxes red" onclick="clicking('3','you clicked me')">
+        <div id="3" class="boxes red" onclick="clicking('3', content3)">
             3
         </div>
-        <div id="23" class="boxes" onclick="clicking('23','you clicked me')">
+        <div id="23" class="boxes" onclick="clicking('23', content23)">
             23
         </div>
-        <div id="17" class="boxes red" onclick="clicking('17','you clicked me')">
+        <div id="17" class="boxes red" onclick="clicking('17', content17)">
             17
         </div>
-        <div id="8" class="boxes" onclick="clicking('8','you clicked me')">
+        <div id="8" class="boxes" onclick="clicking('8', content8)">
             8
         </div> 
-        <div id="10" class="boxes red" onclick="clicking('10','you clicked me')">
+        <div id="10" class="boxes red" onclick="clicking('10', content10)">
             10
         </div>
-        </div>
-        <div class="rows">
-        <div id="14" class="boxes red" onclick="clicking('14','you clicked me')">
+        <div id="14" class="boxes red" onclick="clicking('14', content14)">
             14
         </div>   
-        <div id="4" class="boxes" onclick="clicking('4','you clicked me')">
+        <div id="4" class="boxes" onclick="clicking('4', content4)">
             4
         </div>
-        <div id="13" class="boxes red" onclick="clicking('13','this is the message')">
+        <div id="13" class="boxes red" onclick="clicking('13', content13)">
             13
         </div>
-        <div id="18" class="boxes" onclick="clicking('18','other message')">
+        <div id="18" class="boxes" onclick="clicking('18',content18)">
             18
         </div>
-        <div id="19" class="boxes red" onclick="clicking('19', 
-           '<iframe width=700 height=400 src=https://www.youtube.com/embed/nn2h3_aH3vo?autoplay=1 frameborder=0 allowfullscreen></iframe>')">
+        <div id="19" class="boxes red" onclick="clicking('19', content19)">
             19
         </div>
-        <div id="9" class="boxes" onclick="clicking('9', 
-          '<img src=http://jo-online.vsb.bc.ca/blogs/jo/keller/files/2010/11/snowflakes.jpg>')">
+        <div id="9" class="boxes" onclick="clicking('9', content9)">
             9
-        </div>
         </div>
     </div>
 
     <script>
-      function clicking(id, content) {
-        const elem = document.getElementById(id);
-        elem.classList.toggle("open");
-        const today = new Date();
-        const future = new Date(2017, 11, parseInt(id), 00, 01, 01);
-       console.log(future);
-       // if (future < today) {
-            if (elem.innerHTML == parseInt(id)) {
-              elem.innerHTML = content;
-            } else if (elem.innerHTML == ":)") {
-               elem.innerHTML = content;
+        const year = 2017;
+        const content1 = "This is the content of day 1"
+        const content2 = "This is the content of day 2"
+        const content3 = "This is the content of day 3"
+        const content4 = "This is the content of day 4"   
+        const content5 = "This is the content of day 5"
+        const content6 = "This is the content of day 6"
+        const content7 = "This is the content of day 7"
+        const content8 = "This is the content of day 8"
+        const content9 = "This is the content of day 9"
+        const content10 = "This is the content of day 10"
+        const content11 = "This is the content of day 11"
+        const content12 = "This is the content of day 12"
+        const content13 = "This is the content of day 13"
+        const content14 = "This is the content of day 14"
+        const content15 = "This is the content of day 15"
+        const content16 = "This is the content of day 16"
+        const content17 = "This is the content of day 17"
+        const content18 = "This is the content of day 18"
+        const content19 = "This is the content of day 19"
+        const content20 = "This is the content of day 20"
+        const content21 = "This is the content of day 21"
+        const content22 = "This is the content of day 22"
+        const content23 = "This is the content of day 23"
+        const content24 = "This is the content of day 24"
+
+        function clicking(id, content) {
+            const elem = document.getElementById(id);
+            elem.classList.toggle("open");
+            const today = new Date();
+            const future = new Date(year, 11, parseInt(id), 00, 01, 01);
+            if (future < today) {
+                if (elem.innerHTML == parseInt(id)) {
+                    elem.innerHTML = content;
+                } else if (elem.innerHTML == ":)") {
+                    elem.innerHTML = content;
+                } else {
+                    elem.innerHTML = ":)"
+                }
+                elem.scrollIntoView();
             } else {
-              elem.innerHTML = ":)"
-            }
-            scroll(id); 
-      /* } else {
-            if (elem.innerHTML == parseInt(id)) {
-                elem.innerHTML = "Ennek még nincs itt az ideje!";
-            } else {
-                elem.innerHTML = parseInt(id)
+                if (elem.innerHTML == parseInt(id)) {
+                    elem.innerHTML = "<span style='color: black'>The time has not come yet!</span>";
+                    elem.scrollIntoView();
+                } else {
+                    elem.innerHTML = parseInt(id)
+                } 
             } 
-        }*/
-
-        function scroll(id) {
-        var elmnt = document.getElementById(id);
-        elmnt.scrollIntoView();
-}
-    }
-      
-
+        }      
     </script>
 </body>
 </html>
