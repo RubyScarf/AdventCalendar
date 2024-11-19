@@ -60,6 +60,7 @@
     </style>
 </head>
 <body>
+    <h1 style="color: #000; font-size: 2rem; text-align: center">
     <div class="calendar">
         <div id="1" class="boxes" onclick="clicking('1', content1)"> 1 </div>
         <div id="2" class="boxes red" onclick="clicking('2', content2)"> 2 </div>
@@ -157,7 +158,7 @@
                 elem.scrollIntoView();
             } else {
                 if (elem.innerHTML == parseInt(id)) {
-                    elem.innerHTML = "<span style='color: black'>The time has not come yet!</span>";
+                    elem.innerHTML = "<span style='color: black; font-size: 15px;'>The time has not come yet!</span>";
                     elem.scrollIntoView();
                 } else {
                     elem.innerHTML = parseInt(id)
